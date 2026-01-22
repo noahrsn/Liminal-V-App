@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-5 text-center bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1506152983158-1f2641c21f1d?w=1600&auto=format&fit=crop&q=80'); background-size: cover; color: white;">
+    <div class="mask" style="background-color: rgba(0,0,0,0.5); padding: 6rem 2rem;">
+        <h1 class="display-4">{{ band.name }}</h1>
+        <p class="lead">{{ band.bio }}</p>
+        <a class="btn btn-outline-light btn-lg" href="{{ url_for('liminal_v') }}">Liminal V entdecken</a>
+    </div>
+</div>
+
+<section class="my-5">
+    <h2>Über die Band</h2>
+    <p>{{ band.bio }}</p>
+    <ul>
+        {% for m in band.members %}
+        <li>{{ m }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="my-5">
+    <h2>Neues Album: {{ latest.title }}</h2>
+    <p>Tracklänge: {{ latest.length }}</p>
+    <p>{{ latest.lyrics }}</p>
+    <div class="mt-3">
+        <!-- Beispiel-Audio (extern) -->
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Ihr Browser unterstützt kein Audio.
+        </audio>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Booking</h1>
+<p>Für Booking-Anfragen bitte Formular ausfüllen.</p>
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Organisation / Promoter</label>
+        <input name="organizer" class="form-control" required>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Wunschtermin</label>
+        <input name="date" type="date" class="form-control" required>
+    </div>
+    <div class="col-12">
+        <label class="form-label">Details (Gage, Länge, Technik)</label>
+        <textarea name="details" class="form-control" rows="4" required></textarea>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Anfrage senden</button>
+    </div>
+</form>
+{% endblock %}

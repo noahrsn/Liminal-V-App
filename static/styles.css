@@ -1,0 +1,7 @@
+body {
+  background: #0f0f11;
+  color: #eaeaea;
+}
+a { color: #f8c471; }
+.card img { height: 220px; object-fit: cover; }
+.bg-image { border-radius: .5rem; overflow: hidden; }

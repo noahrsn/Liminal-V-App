@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Liminal V — Album</h1>
+<p>Details und Trackliste</p>
+<div class="list-group mb-4">
+    {% for t in tracks %}
+    <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ t.title }}</h5>
+            <small>{{ t.length }}</small>
+        </div>
+        <p class="mb-1">{{ t.lyrics }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<p>Streaming: <a href="#">Spotify</a> • <a href="#">Bandcamp</a> • <a href="#">Apple Music</a></p>
+{% endblock %}
