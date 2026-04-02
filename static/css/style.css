@@ -9,11 +9,13 @@
   --color-bg-hover:    #353C5A;   /* Hover-Zustände */
   --color-silver:      #9298AD;   /* Kreis + "V" im Logo: Stahlgrau */
   --color-silver-light:#B8BDD0;   /* Aufgehelltes Silber für Hover */
+  --color-gold:        #C9A038;   /* Warmer Goldton – Haupt-Akzent */
+  --color-gold-light:  #E8BF55;   /* Helles Gold für Hover */
   --color-white:       #FFFFFF;   /* "LIMINAL"-Schrift: Reines Weiß */
   --color-text:        #E8EAF0;   /* Fließtext: Off-White */
   --color-text-muted:  #7B87A0;   /* Gedämpfter Hilfstext */
   --color-border:      #3A4162;   /* Subtle Trennlinien */
-  --color-accent:      #9298AD;   /* Akzentfarbe = Silber */
+  --color-accent:      #C9A038;   /* Akzentfarbe = Gold */
 
   /* Typografie */
   --font-heading: 'Barlow Condensed', sans-serif;
@@ -86,6 +88,18 @@ h1, h2, h3, h4 {
   font-weight: 800;
   color: var(--color-white);
   margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  border-radius: 2px;
+  margin-top: 0.5rem;
 }
 
 .section-subtitle {
@@ -115,16 +129,16 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
-  background-color: var(--color-silver);
+  background-color: var(--color-gold);
   color: var(--color-bg-dark);
-  border-color: var(--color-silver);
+  border-color: var(--color-gold);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-silver-light);
-  border-color: var(--color-silver-light);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
   transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 6px 24px rgba(201, 160, 56, 0.35);
 }
 
 .btn-ghost {
@@ -215,9 +229,13 @@ h1, h2, h3, h4 {
   transition: var(--transition);
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: var(--color-white);
+  background-color: var(--color-bg-hover);
+}
+
+.nav-link.active {
+  color: var(--color-gold);
   background-color: var(--color-bg-hover);
 }
 
@@ -296,7 +314,10 @@ h1, h2, h3, h4 {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-white) 40%, var(--color-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
   line-height: 1;
 }
@@ -372,13 +393,13 @@ h1, h2, h3, h4 {
   transition: var(--transition);
 }
 
-.stat:hover { border-color: var(--color-silver); transform: translateY(-3px); }
+.stat:hover { border-color: var(--color-gold); transform: translateY(-3px); box-shadow: 0 4px 16px rgba(201, 160, 56, 0.15); }
 
 .stat-number {
   font-family: var(--font-heading);
   font-size: 2.4rem;
   font-weight: 800;
-  color: var(--color-silver);
+  color: var(--color-gold);
   line-height: 1;
 }
 
@@ -412,9 +433,9 @@ h1, h2, h3, h4 {
 }
 
 .member-card:hover {
-  border-color: var(--color-silver);
+  border-color: var(--color-gold);
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 28px rgba(201, 160, 56, 0.2);
 }
 
 .member-photo {
@@ -663,7 +684,7 @@ h1, h2, h3, h4 {
   color: var(--color-white);
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-silver);
+  border-bottom: 2px solid var(--color-gold);
   display: inline-block;
 }
 
@@ -680,9 +701,9 @@ h1, h2, h3, h4 {
 }
 
 .gig-card:hover {
-  border-color: var(--color-silver);
+  border-color: var(--color-gold);
   transform: translateX(4px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(201, 160, 56, 0.18);
 }
 
 .gig-date {
@@ -701,7 +722,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--color-silver);
+  color: var(--color-gold);
   line-height: 1;
 }
 
@@ -758,7 +779,7 @@ h1, h2, h3, h4 {
   transition: var(--transition);
 }
 
-.gigs-history li:hover { padding-left: 0.5rem; border-color: var(--color-silver); }
+.gigs-history li:hover { padding-left: 0.5rem; border-color: var(--color-gold); }
 .gigs-history li:last-child { border-bottom: none; }
 
 .hist-date {
@@ -818,7 +839,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--color-silver);
+  color: var(--color-gold);
 }
 
 .price-note {
@@ -888,9 +909,9 @@ input::placeholder, textarea::placeholder { color: var(--color-text-muted); }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--color-silver);
+  border-color: var(--color-gold);
   background-color: var(--color-bg-hover);
-  box-shadow: 0 0 0 3px rgba(146, 152, 173, 0.12);
+  box-shadow: 0 0 0 3px rgba(201, 160, 56, 0.15);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
