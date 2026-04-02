@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Liminal V – Eure Coverband für Schützenfeste, Dorffeste, Open-Air-Events und Afterwork-Partys in Walbeck und Umgebung." />
+  <title>Liminal V – Eure Coverband</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Liminal V Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">Über uns</a></li>
+        <li><a href="#gallery" class="nav-link">Galerie</a></li>
+        <li><a href="#setlist" class="nav-link">Setlist</a></li>
+        <li><a href="#gigs" class="nav-link">Gigs</a></li>
+        <li><a href="#contact" class="nav-link">Kontakt</a></li>
+        <li>
+          <a href="https://www.instagram.com/liminal.v" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Liminal V auf Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Liminal V" class="hero-logo" />
+      <p class="hero-tagline">Party. Energie. Live-Sound.</p>
+      <p class="hero-sub">Eure Coverband für unvergessliche Abende – in Walbeck und überall da, wo es rockt.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+        <a href="#about" class="btn btn-ghost">Mehr erfahren</a>
+      </div>
+    </div>
+    <a href="#about" class="hero-scroll" aria-label="Nach unten scrollen">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">Über uns</h2>
+      <p class="section-subtitle">Fünf Typen. Eine Mission. Eine verdammt gute Party.</p>
+
+      <div class="about-grid">
+        <div class="about-bio">
+          <h3>Wer steckt hinter Liminal V?</h3>
+          <p>
+            Alles fing 2019 mit einer simplen Idee an: Was, wenn wir die Songs, die uns auf jedem Festival bewegen,
+            einfach selbst spielen? Gesagt, getan – fünf Freunde aus dem Raum Walbeck schnappten sich ihre Instrumente,
+            mieteten einen Proberaum und legten los.
+          </p>
+          <p>
+            Aus ein paar Probejams wurde eine echte Band. Aus der Idee wurde ein Sound: Laut, direkt, und mit
+            so viel Energie, dass selbst der letzte müde Festbesucher mitfeiert. Liminal V steht für den Moment,
+            in dem eine Veranstaltung von "nett" zu "legendär" wird.
+          </p>
+          <p>
+            Wir spielen Schützenfeste, Dorffeste, Open-Air-Events und Afterwork-Partys – hauptsächlich in Walbeck
+            und der näheren Umgebung. Bodenständig, zuverlässig, und immer mit vollem Einsatz.
+          </p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">2019</span>
+            <span class="stat-label">gegründet</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4–5×</span>
+            <span class="stat-label">Auftritte pro Jahr</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Bandmitglieder</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANDMITGLIEDER -->
+      <h3 class="members-title">Die Crew</h3>
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="member-photo placeholder">
+            <span>L</span>
+          </div>
+          <div class="member-info">
+            <h4>Lisa</h4>
+            <span class="member-role">Vocals</span>
+            <p>Die Stimme, die den Raum füllt. Lisa bringt die Front-Row zum Kochen – ob Powerballade oder Partyhymne.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-photo placeholder">
+            <span>M</span>
+          </div>
+          <div class="member-info">
+            <h4>Marc</h4>
+            <span class="member-role">Rhythmusgitarre & Backing Vocals</span>
+            <p>Das Rückgrat des Sounds. Marc hält alles zusammen – und weiß genau, wann ein Background-Harmony sitzen muss.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-photo placeholder">
+            <span>J</span>
+          </div>
+          <div class="member-info">
+            <h4>Jonas</h4>
+            <span class="member-role">Lead-Gitarre</span>
+            <p>Solos, die gänsehaut machen. Jonas dreht auf, wenn andere aufhören – und genau das macht ihn unverzichtbar.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-photo placeholder">
+            <span>T</span>
+          </div>
+          <div class="member-info">
+            <h4>Tim</h4>
+            <span class="member-role">Bass</span>
+            <p>Tief, groovend, unaufhörlich. Tim's Basslines sind der Grund, warum man bei uns automatisch anfängt zu wippen.</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-photo placeholder">
+            <span>K</span>
+          </div>
+          <div class="member-info">
+            <h4>Kai</h4>
+            <span class="member-role">Drums</span>
+            <p>Das Herz der Band. Kai ist der Motor hinter jedem Groove – und sorgt dafür, dass niemand sitzen bleibt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="gallery" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Galerie</h2>
+      <p class="section-subtitle">Ein Blick hinter die Bühne – und mitten ins Geschehen.</p>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Platzhalter bis echte Fotos vorhanden sind -->
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+        <div class="gallery-item placeholder-img">
+          <span>Foto folgt</span>
+        </div>
+      </div>
+      <p class="gallery-hint">
+        Mehr auf
+        <a href="https://www.instagram.com/liminal.v" target="_blank" rel="noopener noreferrer">@liminal.v</a>
+      </p>
+    </div>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto-Lightbox">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">&times;</button>
+      <img src="" alt="" id="lightboxImg" />
+    </div>
+  </section>
+
+  <!-- SETLIST -->
+  <section id="setlist" class="section">
+    <div class="container">
+      <h2 class="section-title">Setlist</h2>
+      <p class="section-subtitle">So klingt ein typischer Abend mit uns.</p>
+
+      <div class="setlist-wrapper">
+        <div class="setlist-header">
+          <span class="setlist-event">Schützenfest Walbeck 2025</span>
+          <span class="setlist-duration">ca. 3 Stunden · Live</span>
+        </div>
+
+        <div class="setlist-block">
+          <h4 class="setlist-block-title">Opening</h4>
+          <ol class="setlist-list">
+            <li><span class="track-num">01</span><span class="track-title">Mr. Brightside</span><span class="track-artist">The Killers</span></li>
+            <li><span class="track-num">02</span><span class="track-title">Sweet Child O' Mine</span><span class="track-artist">Guns N' Roses</span></li>
+            <li><span class="track-num">03</span><span class="track-title">Livin' on a Prayer</span><span class="track-artist">Bon Jovi</span></li>
+          </ol>
+        </div>
+
+        <div class="setlist-block">
+          <h4 class="setlist-block-title">Main Set</h4>
+          <ol class="setlist-list" start="4">
+            <li><span class="track-num">04</span><span class="track-title">Blinding Lights</span><span class="track-artist">The Weeknd</span></li>
+            <li><span class="track-num">05</span><span class="track-title">Don't Stop Me Now</span><span class="track-artist">Queen</span></li>
+            <li><span class="track-num">06</span><span class="track-title">Rolling in the Deep</span><span class="track-artist">Adele</span></li>
+            <li><span class="track-num">07</span><span class="track-title">Uptown Funk</span><span class="track-artist">Mark Ronson ft. Bruno Mars</span></li>
+            <li><span class="track-num">08</span><span class="track-title">Seven Nation Army</span><span class="track-artist">The White Stripes</span></li>
+            <li><span class="track-num">09</span><span class="track-title">Shallow</span><span class="track-artist">Lady Gaga & Bradley Cooper</span></li>
+            <li><span class="track-num">10</span><span class="track-title">Highway to Hell</span><span class="track-artist">AC/DC</span></li>
+            <li><span class="track-num">11</span><span class="track-title">Valerie</span><span class="track-artist">Amy Winehouse</span></li>
+            <li><span class="track-num">12</span><span class="track-title">Take On Me</span><span class="track-artist">a-ha</span></li>
+          </ol>
+        </div>
+
+        <div class="setlist-block">
+          <h4 class="setlist-block-title">Encore</h4>
+          <ol class="setlist-list" start="13">
+            <li><span class="track-num">13</span><span class="track-title">Bohemian Rhapsody</span><span class="track-artist">Queen</span></li>
+            <li><span class="track-num">14</span><span class="track-title">Angels</span><span class="track-artist">Robbie Williams</span></li>
+          </ol>
+        </div>
+
+        <p class="setlist-note">
+          Das ist nur ein Ausschnitt unseres Repertoires – unser Set passen wir gerne auf euer Event ab.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIGS -->
+  <section id="gigs" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Gigs</h2>
+      <p class="section-subtitle">Wann und wo ihr uns als nächstes live erleben könnt.</p>
+
+      <div class="gigs-grid">
+        <div class="gigs-col">
+          <h3 class="gigs-col-title">Kommende Termine</h3>
+          <div class="gig-card upcoming">
+            <div class="gig-date">
+              <span class="gig-day">12</span>
+              <span class="gig-month">Jul</span>
+              <span class="gig-year">2026</span>
+            </div>
+            <div class="gig-info">
+              <h4>Schützenfest Walbeck</h4>
+              <p>Walbeck · Festzelt · 20:00 Uhr</p>
+              <span class="gig-tag">Open Air</span>
+            </div>
+          </div>
+          <div class="gig-card upcoming">
+            <div class="gig-date">
+              <span class="gig-day">09</span>
+              <span class="gig-month">Aug</span>
+              <span class="gig-year">2026</span>
+            </div>
+            <div class="gig-info">
+              <h4>Open Air am Waldfreibad</h4>
+              <p>Walbeck · Freibad-Bühne · 19:00 Uhr</p>
+              <span class="gig-tag">Festival</span>
+            </div>
+          </div>
+          <p class="gigs-booking-cta">
+            Event geplant? <a href="#contact">Schreib uns!</a>
+          </p>
+        </div>
+
+        <div class="gigs-col">
+          <h3 class="gigs-col-title">Vergangene Highlights</h3>
+          <ul class="gigs-history">
+            <li>
+              <span class="hist-date">Sep 2025</span>
+              <span class="hist-event">Afterwork Party – Schloss Walbeck</span>
+            </li>
+            <li>
+              <span class="hist-date">Jun 2025</span>
+              <span class="hist-event">Dorffest Walbeck</span>
+            </li>
+            <li>
+              <span class="hist-date">Aug 2024</span>
+              <span class="hist-event">Open Air Waldfreibad</span>
+            </li>
+            <li>
+              <span class="hist-date">Jul 2024</span>
+              <span class="hist-event">Schützenfest Walbeck</span>
+            </li>
+            <li>
+              <span class="hist-date">Sep 2023</span>
+              <span class="hist-event">Afterwork Party – Schloss Walbeck</span>
+            </li>
+            <li>
+              <span class="hist-date">Jun 2023</span>
+              <span class="hist-event">Dorffest Kapellen</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Booking-Anfrage</h2>
+      <p class="section-subtitle">Schreib uns – wir antworten schnell und unkompliziert.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Konditionen</h3>
+          <div class="pricing">
+            <div class="price-item">
+              <span class="price-label">Gage</span>
+              <span class="price-value">250 € / Stunde</span>
+            </div>
+            <div class="price-item">
+              <span class="price-label">Technik-Pauschale</span>
+              <span class="price-value">+ 100 €</span>
+              <span class="price-note">(wenn wir PA & Technik mitbringen)</span>
+            </div>
+          </div>
+          <p class="contact-text">
+            Ihr habt ein Event und sucht eine Band, die den Abend rockt? Schickt uns eine Anfrage –
+            wir schauen, ob der Termin noch frei ist, und melden uns zeitnah zurück.
+          </p>
+          <a href="https://www.instagram.com/liminal.v" target="_blank" rel="noopener noreferrer" class="contact-instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @liminal.v auf Instagram
+          </a>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" placeholder="Dein Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail *</label>
+              <input type="email" id="email" name="email" placeholder="deine@email.de" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="Optional" />
+            </div>
+            <div class="form-group">
+              <label for="event_date">Event-Datum</label>
+              <input type="date" id="event_date" name="event_date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location">Veranstaltungsort</label>
+            <input type="text" id="location" name="location" placeholder="Ort / Location" />
+          </div>
+          <div class="form-group">
+            <label for="message">Nachricht *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Erzähl uns von eurem Event..." required></textarea>
+          </div>
+          <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span class="btn-text">Anfrage senden</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Liminal V" class="footer-logo" />
+      <p class="footer-copy">&copy; 2026 Liminal V · Walbeck</p>
+      <a href="https://www.instagram.com/liminal.v" target="_blank" rel="noopener noreferrer" class="footer-instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
