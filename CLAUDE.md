@@ -12,7 +12,8 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
 
 ## 3. Brand & Content Guidelines
 - **Bandname:** Liminal V
-- **Besetzung:** - Sängerin
+- **Besetzung:** 
+    - Sängerin
     - Rhythmus-Gitarrist (inkl. Background-Gesang)
     - Lead-Gitarrist
     - Bassist
