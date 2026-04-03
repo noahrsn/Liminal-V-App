@@ -9,35 +9,33 @@ const header   = document.getElementById('header');
 const SCROLL_THRESHOLD = 40;
 
 // ---- Nav: mobile burger ------------------------------------
-const burger  = document.getElementById('navBurger');
-const navList = document.getElementById('navList');
+const burger   = document.getElementById('navBurger');
+const navList  = document.getElementById('navList');
+const backdrop = document.getElementById('navBackdrop');
+
+function closeNav() {
+  navList.classList.remove('is-open');
+  burger.classList.remove('is-active');
+  burger.setAttribute('aria-expanded', 'false');
+  backdrop.classList.remove('is-visible');
+  document.body.style.overflow = '';
+}
 
 burger.addEventListener('click', () => {
   const isOpen = navList.classList.toggle('is-open');
   burger.classList.toggle('is-active', isOpen);
   burger.setAttribute('aria-expanded', String(isOpen));
+  backdrop.classList.toggle('is-visible', isOpen);
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// Close menu when a nav link is clicked
+// Close on nav link click
 navList.addEventListener('click', (e) => {
-  if (e.target.closest('.nav__link')) {
-    navList.classList.remove('is-open');
-    burger.classList.remove('is-active');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
+  if (e.target.closest('.nav__link')) closeNav();
 });
 
-// Close menu on outside click
-document.addEventListener('click', (e) => {
-  if (!header.contains(e.target) && navList.classList.contains('is-open')) {
-    navList.classList.remove('is-open');
-    burger.classList.remove('is-active');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-});
+// Close on backdrop click
+backdrop.addEventListener('click', closeNav);
 
 // ---- Hero: logo + content fade on scroll -------------------
 const heroEl      = document.querySelector('.hero');
