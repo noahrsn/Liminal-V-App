@@ -60,13 +60,17 @@
     </a>
   </section>
 
+  <!-- PARALLAX DIVIDER -->
+  <div class="parallax-divider" aria-hidden="true"></div>
+
   <!-- ÜBER UNS -->
+
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">Über uns</h2>
-      <p class="section-subtitle">Fünf Typen. Eine Mission. Eine verdammt gute Party.</p>
+      <h2 class="section-title reveal">Über uns</h2>
+      <p class="section-subtitle reveal">Fünf Typen. Eine Mission. Eine verdammt gute Party.</p>
 
-      <div class="about-grid">
+      <div class="about-grid reveal">
         <div class="about-bio">
           <h3>Wer steckt hinter Liminal V?</h3>
           <p>
@@ -102,9 +106,9 @@
       </div>
 
       <!-- BANDMITGLIEDER -->
-      <h3 class="members-title">Die Crew</h3>
+      <h3 class="members-title reveal">Die Crew</h3>
       <div class="members-grid">
-        <div class="member-card">
+        <div class="member-card reveal">
           <img src="{{ url_for('static', filename='images/member-muriel.jpeg') }}" alt="Muriel" class="member-photo" />
           <div class="member-info">
             <h4>Muriel</h4>
@@ -112,7 +116,7 @@
             <p>Die Stimme, die den Raum füllt. Muriel bringt die Front-Row zum Kochen – ob Powerballade oder Partyhymne.</p>
           </div>
         </div>
-        <div class="member-card">
+        <div class="member-card reveal" style="transition-delay:0.1s">
           <img src="{{ url_for('static', filename='images/member-duc.jpeg') }}" alt="Duc" class="member-photo" />
           <div class="member-info">
             <h4>Duc</h4>
@@ -120,7 +124,7 @@
             <p>Das Rückgrat des Sounds. Duc hält alles zusammen – und weiß genau, wann ein Background-Harmony sitzen muss.</p>
           </div>
         </div>
-        <div class="member-card">
+        <div class="member-card reveal" style="transition-delay:0.2s">
           <img src="{{ url_for('static', filename='images/member-erik.jpeg') }}" alt="Erik" class="member-photo" />
           <div class="member-info">
             <h4>Erik</h4>
@@ -128,7 +132,7 @@
             <p>Solos, die Gänsehaut machen. Erik dreht auf, wenn andere aufhören – und genau das macht ihn unverzichtbar.</p>
           </div>
         </div>
-        <div class="member-card">
+        <div class="member-card reveal" style="transition-delay:0.3s">
           <img src="{{ url_for('static', filename='images/member-paul.jpeg') }}" alt="Paul" class="member-photo" />
           <div class="member-info">
             <h4>Paul</h4>
@@ -136,7 +140,7 @@
             <p>Tief, groovend, unaufhörlich. Pauls Basslines sind der Grund, warum man bei uns automatisch anfängt zu wippen.</p>
           </div>
         </div>
-        <div class="member-card">
+        <div class="member-card reveal" style="transition-delay:0.4s">
           <img src="{{ url_for('static', filename='images/member-noah.jpeg') }}" alt="Noah" class="member-photo" />
           <div class="member-info">
             <h4>Noah</h4>
@@ -148,11 +152,14 @@
     </div>
   </section>
 
+  <!-- PARALLAX DIVIDER -->
+  <div class="parallax-divider parallax-divider--2" aria-hidden="true"></div>
+
   <!-- GALERIE -->
   <section id="gallery" class="section section-dark">
     <div class="container">
-      <h2 class="section-title">Galerie</h2>
-      <p class="section-subtitle">Ein Blick hinter die Bühne – und mitten ins Geschehen.</p>
+      <h2 class="section-title reveal">Galerie</h2>
+      <p class="section-subtitle reveal">Ein Blick hinter die Bühne – und mitten ins Geschehen.</p>
       <div class="gallery-grid" id="galleryGrid">
         <!-- Platzhalter bis echte Fotos vorhanden sind -->
         <div class="gallery-item placeholder-img">
@@ -189,10 +196,10 @@
   <!-- SETLIST -->
   <section id="setlist" class="section">
     <div class="container">
-      <h2 class="section-title">Setlist</h2>
-      <p class="section-subtitle">So klingt ein typischer Abend mit uns.</p>
+      <h2 class="section-title reveal">Setlist</h2>
+      <p class="section-subtitle reveal">So klingt ein typischer Abend mit uns.</p>
 
-      <div class="setlist-wrapper">
+      <div class="setlist-wrapper reveal">
         <div class="setlist-header">
           <span class="setlist-event">Schützenfest Walbeck 2025</span>
           <span class="setlist-duration">ca. 3 Stunden · Live</span>
@@ -237,16 +244,19 @@
     </div>
   </section>
 
+  <!-- PARALLAX DIVIDER -->
+  <div class="parallax-divider" aria-hidden="true"></div>
+
   <!-- GIGS -->
   <section id="gigs" class="section section-dark">
     <div class="container">
-      <h2 class="section-title">Gigs</h2>
-      <p class="section-subtitle">Wann und wo ihr uns als nächstes live erleben könnt.</p>
+      <h2 class="section-title reveal">Gigs</h2>
+      <p class="section-subtitle reveal">Wann und wo ihr uns als nächstes live erleben könnt.</p>
 
       <div class="gigs-grid">
         <div class="gigs-col">
           <h3 class="gigs-col-title">Kommende Termine</h3>
-          <div class="gig-card upcoming">
+          <div class="gig-card upcoming reveal">
             <div class="gig-date">
               <span class="gig-day">12</span>
               <span class="gig-month">Jul</span>
@@ -258,7 +268,7 @@
               <span class="gig-tag">Open Air</span>
             </div>
           </div>
-          <div class="gig-card upcoming">
+          <div class="gig-card upcoming reveal" style="transition-delay:0.15s">
             <div class="gig-date">
               <span class="gig-day">09</span>
               <span class="gig-month">Aug</span>
@@ -311,10 +321,10 @@
   <!-- KONTAKT -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title">Booking-Anfrage</h2>
-      <p class="section-subtitle">Schreib uns – wir antworten schnell und unkompliziert.</p>
+      <h2 class="section-title reveal">Booking-Anfrage</h2>
+      <p class="section-subtitle reveal">Schreib uns – wir antworten schnell und unkompliziert.</p>
 
-      <div class="contact-grid">
+      <div class="contact-grid reveal">
         <div class="contact-info">
           <h3>Konditionen</h3>
           <div class="pricing">
