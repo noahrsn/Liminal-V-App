@@ -286,6 +286,10 @@ h1, h2, h3, h4 {
   text-align: center;
   overflow: hidden;
   background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg) 50%, #1E2640 100%);
+  background-image: url('../images/hero-bg.jpeg');
+  background-size: cover;
+  background-position: center top;
+  background-blend-mode: overlay;
 }
 
 .hero-overlay {
