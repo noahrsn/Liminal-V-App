@@ -73,6 +73,27 @@ function onHeroScroll() {
 window.addEventListener('scroll', onHeroScroll, { passive: true });
 onHeroScroll(); // run once
 
+// ---- Photo divider: mobile parallax -----------------------
+const photoDivider   = document.querySelector('.photo-divider');
+const photoDividerBg = document.querySelector('.photo-divider__bg');
+
+function onPhotoDividerScroll() {
+  if (!photoDivider || !photoDividerBg) return;
+  // Only run on mobile where background-attachment:fixed is disabled
+  if (window.innerWidth > 768) return;
+
+  const rect   = photoDivider.getBoundingClientRect();
+  const viewH  = window.innerHeight;
+  // offset = how far the element's centre is from the viewport centre
+  const offset = (rect.top + rect.height / 2) - viewH / 2;
+  // 0.15 factor → subtle depth; image scrolls 15% slower than content
+  photoDividerBg.style.transform = `translateY(${offset * 0.15}px)`;
+}
+
+window.addEventListener('scroll', onPhotoDividerScroll, { passive: true });
+window.addEventListener('resize', onPhotoDividerScroll, { passive: true });
+onPhotoDividerScroll();
+
 // ---- Nav: active link on scroll ----------------------------
 const sections = Array.from(document.querySelectorAll('section[id]'));
 const navLinks = Array.from(document.querySelectorAll('.nav__link[href^="#"]'));

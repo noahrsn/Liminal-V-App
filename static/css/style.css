@@ -1104,11 +1104,16 @@ figcaption {
   /* Members */
   .members__grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Photo divider – fixed attachment doesn't work on mobile */
+  /* Photo divider – fixed attachment doesn't work on mobile; JS parallax used instead */
   .photo-divider { height: 320px; }
   .photo-divider__bg {
     background-attachment: scroll;
     background-position: center 35%;
+    inset: -15% 0;          /* extra vertical room for JS translateY */
+    height: auto;
+    top: -15%;
+    bottom: -15%;
+    will-change: transform;
   }
 
   /* Gigs */
