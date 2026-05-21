@@ -120,12 +120,27 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 100;
   height: var(--header-h);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease;
+}
+
+/* backdrop-filter auf ::after statt auf header selbst, damit position:fixed
+   Kinder (nav__list, backdrop) weiterhin am Viewport verankert bleiben */
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: transparent;
+  transition: background 0.4s ease;
+  pointer-events: none;
 }
 
 .header--scrolled {
-  background: rgba(14, 14, 18, 0.97);
   box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.header--scrolled::after {
+  background: rgba(14, 14, 18, 0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -552,7 +567,7 @@ h1, h2, h3, h4 {
 .gigs__list {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 8px;
 }
 
 .gig-card {
@@ -1100,7 +1115,6 @@ figcaption {
     letter-spacing: 0.05em;
     padding: 1rem 0;
     border-radius: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
     width: 100%;
     color: rgba(255,255,255,0.88);
   }
@@ -1148,8 +1162,18 @@ figcaption {
   }
 
   /* Gigs */
-  .gig-card { flex-direction: column; gap: 1rem; padding: 1.25rem; }
-  .gig-card__date { flex-direction: row; align-items: baseline; gap: 0.5rem; border-right: none; padding-right: 0; }
+  .gig-card { flex-direction: column; align-items: center; text-align: center; gap: 1rem; padding: 1.25rem; }
+  .gig-card__date {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid var(--c-border-dark);
+    padding-bottom: 0.75rem;
+    width: 100%;
+  }
 
   .btn { padding: 0.75em 1.75em; }
 
