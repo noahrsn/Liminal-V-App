@@ -145,6 +145,41 @@ document.querySelectorAll('.gallery__item img').forEach((img) => {
   });
 });
 
+// ---- Legal modals ------------------------------------------
+function openLegalModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add('is-open');
+  modal.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.legal-modal__close')?.focus();
+}
+
+function closeLegalModal(modal) {
+  modal.classList.remove('is-open');
+  if (!document.querySelector('.legal-modal.is-open')) {
+    document.body.style.overflow = '';
+  }
+}
+
+document.querySelectorAll('[data-modal]').forEach((trigger) => {
+  trigger.addEventListener('click', () => openLegalModal(trigger.dataset.modal));
+});
+
+document.querySelectorAll('[data-modal-close]').forEach((btn) => {
+  btn.addEventListener('click', () => closeLegalModal(btn.closest('.legal-modal')));
+});
+
+document.querySelectorAll('.legal-modal').forEach((modal) => {
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeLegalModal(modal); });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.legal-modal.is-open').forEach(closeLegalModal);
+  }
+});
+
 // ---- Contact form ------------------------------------------
 const form        = document.getElementById('contactForm');
 const submitBtn   = document.getElementById('submitBtn');
