@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ':*)",
+      "Bash(python -c ':*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from flask import Flask; from dotenv import load_dotenv; print\\('Imports OK'\\)\")",
+      "Bash(python:*)",
+      "Bash(cmd.exe:*)"
+    ]
+  }
+}

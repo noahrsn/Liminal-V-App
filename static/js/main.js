@@ -110,7 +110,35 @@ function updateActiveLink() {
 }
 window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-// ---- Gallery: placeholder fallback -------------------------
+// ---- Gallery: lightbox -------------------------------------
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('galleryGrid').addEventListener('click', (e) => {
+  const img = e.target.closest('.gallery__item')?.querySelector('img');
+  if (img && !img.classList.contains('gallery__item--placeholder')) openLightbox(img.src, img.alt);
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+});
+
+// Error fallback
 document.querySelectorAll('.gallery__item img').forEach((img) => {
   img.addEventListener('error', () => {
     img.closest('.gallery__item').classList.add('gallery__item--placeholder');
