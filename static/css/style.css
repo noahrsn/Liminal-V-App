@@ -5,18 +5,18 @@
 /* ---- 1. VARIABLES ---------------------------------------- */
 :root {
   /* Colors */
-  --c-ink:           #0e0e12;
-  --c-ink-alt:       #16161c;
-  --c-ink-card:      #1e1e28;
+  --c-ink:           #0b0e14;
+  --c-ink-alt:       #131820;
+  --c-ink-card:      #181e28;
   --c-parchment:     #f1ede6;
   --c-parchment-alt: #e7e2d8;
-  --c-gold:          #9838cc;
-  --c-gold-light:    #b058e0;
+  --c-gold:          #1e8cd4;
+  --c-gold-light:    #3aaee8;
   --c-text-light:    #dedad3;
   --c-text-muted:    #7a7874;
   --c-text-dark:     #1e1d1b;
   --c-text-dark-2:   #4a4845;
-  --c-border-dark:   #25252f;
+  --c-border-dark:   #1e2535;
   --c-border-light:  #d5d0c6;
 
   /* Typography */
@@ -96,7 +96,7 @@ h1, h2, h3, h4 {
   background: var(--c-gold-light);
   border-color: var(--c-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(152, 56, 204, 0.35);
+  box-shadow: 0 8px 24px rgba(30, 140, 212, 0.35);
 }
 
 .btn--ghost {
@@ -255,7 +255,7 @@ h1, h2, h3, h4 {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
   overflow: hidden;
@@ -263,18 +263,26 @@ h1, h2, h3, h4 {
 
 .hero__bg {
   position: absolute;
-  inset: -120px 0; /* extra room for JS parallax translation */
+  inset: 0;
   background-image: url('/static/images/hero-bg.jpg');
   background-size: cover;
   background-position: center 30%;
-  opacity: 0.72;
   will-change: transform;
+  opacity: 0.9;
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(14,14,18,0.15) 0%, rgba(14,14,18,0.52) 65%, rgba(14,14,18,0.88) 100%);
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.08) 28%,
+    rgba(0,0,0,0.15) 75%,
+    rgba(11,14,20,0.65) 100%
+  );
+  pointer-events: none;
 }
 
 .hero__content {
@@ -284,7 +292,7 @@ h1, h2, h3, h4 {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  padding: 2rem 1rem;
+  padding: calc(var(--header-h) + 4vh) 1rem 4rem;
   max-width: 700px;
 }
 
@@ -350,8 +358,8 @@ h1, h2, h3, h4 {
   width: 700px;
   height: 400px;
   background: radial-gradient(ellipse at center,
-    rgba(152, 56, 204, 0.2) 0%,
-    rgba(152, 56, 204, 0.07) 45%,
+    rgba(30, 140, 212, 0.2) 0%,
+    rgba(30, 140, 212, 0.07) 45%,
     transparent 70%);
   pointer-events: none;
 }
@@ -391,7 +399,7 @@ h1, h2, h3, h4 {
   z-index: 1;
 }
 .hero-cta .btn--primary:hover {
-  box-shadow: 0 0 50px rgba(152, 56, 204, 0.5), 0 8px 24px rgba(152, 56, 204, 0.3);
+  box-shadow: 0 0 50px rgba(30, 140, 212, 0.5), 0 8px 24px rgba(30, 140, 212, 0.3);
   transform: translateY(-3px);
 }
 
@@ -695,7 +703,7 @@ h1, h2, h3, h4 {
   transition: var(--t);
 }
 .setlist__item:last-child { border-bottom: none; }
-.setlist__item:hover { background: rgba(152, 56, 204, 0.05); padding-left: 0.5rem; border-radius: var(--radius); }
+.setlist__item:hover { background: rgba(30, 140, 212, 0.05); padding-left: 0.5rem; border-radius: var(--radius); }
 
 .setlist__num {
   font-family: var(--font-heading);
@@ -972,7 +980,7 @@ figcaption {
 }
 .form__input:focus {
   border-color: var(--c-gold);
-  box-shadow: 0 0 0 3px rgba(152, 56, 204, 0.2);
+  box-shadow: 0 0 0 3px rgba(30, 140, 212, 0.2);
 }
 .form__input::placeholder { color: #bbb; }
 
