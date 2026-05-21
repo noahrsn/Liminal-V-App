@@ -836,6 +836,8 @@ figcaption {
 }
 .lightbox__close:hover { background: rgba(255,255,255,0.22); }
 
+.gallery__more-btn { display: none; }
+
 .gallery__cta {
   text-align: center;
   color: var(--c-text-muted);
@@ -1316,8 +1318,28 @@ figcaption {
     width: 100%;
   }
 
-  /* Members */
-  .members__grid { grid-template-columns: repeat(2, 1fr); }
+  /* Members – single column, horizontal card layout */
+  .members__grid { grid-template-columns: 1fr; }
+
+  .member-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .member-card__photo {
+    width: 38%;
+    flex-shrink: 0;
+    aspect-ratio: unset;
+    min-height: 150px;
+  }
+
+  .member-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   /* Photo divider – fixed attachment doesn't work on mobile; JS parallax used instead */
   .photo-divider { height: 240px; }
@@ -1350,9 +1372,20 @@ figcaption {
   .form__row { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 520px) {
-  .members__grid { grid-template-columns: repeat(2, 1fr); max-width: none; margin-inline: auto; }
+@media (max-width: 600px) {
   .gallery__grid { columns: 1; }
+  .gallery__grid .gallery__item:not(:first-child) { display: none; }
+  .gallery__grid.is-expanded .gallery__item { display: block; }
+  .gallery__more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 1rem auto 0;
+  }
+}
+
+@media (max-width: 520px) {
   .footer__inner { flex-direction: column; align-items: center; text-align: center; }
   .footer__nav { justify-content: center; }
 }

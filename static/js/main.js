@@ -110,6 +110,18 @@ function updateActiveLink() {
 }
 window.addEventListener('scroll', updateActiveLink, { passive: true });
 
+// ---- Gallery: "Mehr anzeigen" button ----------------------
+const galleryMoreBtn  = document.getElementById('galleryMoreBtn');
+const galleryMoreGrid = document.getElementById('galleryMoreGrid');
+
+if (galleryMoreBtn && galleryMoreGrid) {
+  galleryMoreBtn.addEventListener('click', () => {
+    galleryMoreGrid.classList.add('is-expanded');
+    galleryMoreBtn.setAttribute('aria-expanded', 'true');
+    galleryMoreBtn.style.display = 'none';
+  });
+}
+
 // ---- Gallery: lightbox -------------------------------------
 const lightbox      = document.getElementById('lightbox');
 const lightboxImg   = document.getElementById('lightboxImg');
