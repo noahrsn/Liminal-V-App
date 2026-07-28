@@ -39,7 +39,9 @@ def contact():
     # Absender muss auf einer bei Resend verifizierten Domain liegen – der SMTP-User
     # ist bei Resend nur "resend" und taugt nicht als From-Adresse.
     mail_from = os.environ.get("MAIL_FROM", "Liminal V <noreply@liminal-v.de>")
-    mail_to = os.environ.get("MAIL_TO", "booking@liminal-v.de")
+    # Fallback bewusst direkt aufs Gmail-Postfach: greift nur, wenn nichts konfiguriert
+    # ist – dann soll die Anfrage nicht von der Cloudflare-Weiterleitung abhängen.
+    mail_to = os.environ.get("MAIL_TO", "liminalv.band@gmail.com")
 
     # Format date to German style if provided
     date_display = "–"
