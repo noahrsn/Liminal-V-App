@@ -9,7 +9,7 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
 - **Deployment:** Die Website muss lokal per `localhost` lauffähig und testbar sein. Produktiv läuft sie **selbst gehostet**: Docker-Container (Gunicorn auf Port 8080) auf einer Proxmox-LXC im eigenen Homeserver, erreichbar über den bereits bestehenden **Cloudflare Tunnel** (Public Hostname `www.liminal-v.de`). Kein externes Hosting-Konto, kein nginx und kein separates Zertifikat nötig. Details siehe `DEPLOY.md`.
 - **Struktur:** Sauberer, semantischer HTML-Aufbau.
 - **Styling:** Verwende natives CSS. Lege die primären Farben als CSS-Variablen (`:root`) an, damit sie leicht anpassbar sind.
-- **Formular-Verarbeitung:** Implementiere im Python-Backend eine sichere Logik (z. B. via `smtplib`), die die Eingaben aus dem Kontaktformular entgegennimmt und direkt als E-Mail an liminalv.band@gmail.com sendet.
+- **Formular-Verarbeitung:** Das Python-Backend nimmt die Eingaben aus dem Kontaktformular entgegen und versendet sie via `smtplib` über Resend-SMTP (Absender `noreply@liminal-v.de`) an `booking@liminal-v.de`. Von dort leitet Cloudflare Email Routing an das Gmail-Postfach weiter. Adressen und Zugangsdaten kommen aus der `.env` (`MAIL_FROM`, `MAIL_TO`, `SMTP_*`) – siehe `MAIL.md`.
 
 ## 3. Brand & Content Guidelines
 - **Bandname:** Liminal V
@@ -23,7 +23,7 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
 - **Booking-Konditionen:** - Gage: 250 € pro Stunde
     - Technik-Pauschale: +100 € (wenn wir eigene PA/Technik mitbringen und aufbauen)
 - **Social Media:** Es gibt ausschließlich Instagram. Bitte binde das Instagram-Logo gut sichtbar ein und verlinke es. Andere Plattformen (Facebook, TikTok etc.) existieren nicht und sollen auch nicht als Platzhalter auftauchen.
-- **Kontakt:** Alle Anfragen laufen über das Kontaktformular an liminalv.band@gmail.com.
+- **Kontakt:** Alle Anfragen laufen über das Kontaktformular an booking@liminal-v.de (wird an das Gmail-Postfach der Band weitergeleitet).
 
 ## 4. Design & UI/UX Vorgaben
 - **Rolle:** Agiere als erfahrener UI/UX-Designer und Full-Stack-Entwickler. Das Design muss **maximal professionell** wirken, modern sein und die Live-Energie der Band transportieren.
@@ -38,7 +38,7 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
     - **Beispiel-Setlist** – Beispielhafte Setlist eines vergangenen Gigs
     - **Gigs** – Kommende Termine und vergangene Highlights (Gig-Historie)
     - **Galerie** – Visuell ansprechende Bildergalerie von Auftritten
-    - **Kontakt / Buchung** – Kontaktformular für Booking-Anfragen (per E-Mail an liminalv.band@gmail.com)
+    - **Kontakt / Buchung** – Kontaktformular für Booking-Anfragen (per E-Mail an booking@liminal-v.de)
 
 ## 5. Claude Code Workflow-Regeln
 - **Planung zuerst:** Bevor du Code generierst, schlage mir den Seitenaufbau, die Navigationsreihenfolge und die Struktur des Python-Backends vor. Erstelle erst Code, wenn ich zustimme.

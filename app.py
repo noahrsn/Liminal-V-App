@@ -31,10 +31,15 @@ def contact():
     if not name or not email or not message:
         return jsonify({"success": False, "error": "Bitte fülle alle Pflichtfelder aus."}), 400
 
-    smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+    smtp_host = os.environ.get("SMTP_HOST", "smtp.resend.com")
     smtp_port = int(os.environ.get("SMTP_PORT", "587"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_pass = os.environ.get("SMTP_PASS", "")
+
+    # Absender muss auf einer bei Resend verifizierten Domain liegen – der SMTP-User
+    # ist bei Resend nur "resend" und taugt nicht als From-Adresse.
+    mail_from = os.environ.get("MAIL_FROM", "Liminal V <noreply@liminal-v.de>")
+    mail_to = os.environ.get("MAIL_TO", "booking@liminal-v.de")
 
     # Format date to German style if provided
     date_display = "–"
@@ -165,7 +170,7 @@ def contact():
                 Liminal V &nbsp;&middot;&nbsp; Walbeck &nbsp;&middot;&nbsp; Niederrhein
               </p>
               <p style="margin:0;font-size:11px;color:#4a4845;line-height:1.6;">
-                Diese E-Mail wurde automatisch &uuml;ber das Kontaktformular auf liminalv.band generiert.
+                Diese E-Mail wurde automatisch &uuml;ber das Kontaktformular auf liminal-v.de generiert.
               </p>
             </td>
           </tr>
@@ -178,8 +183,8 @@ def contact():
 </html>"""
 
     msg = MIMEMultipart("alternative")
-    msg["From"] = smtp_user or "noreply@liminalv.band"
-    msg["To"] = "liminalv.band@gmail.com"
+    msg["From"] = mail_from
+    msg["To"] = mail_to
     msg["Reply-To"] = email
     msg["Subject"] = f"Booking-Anfrage von {name}"
     msg.attach(MIMEText(body_plain, "plain", "utf-8"))

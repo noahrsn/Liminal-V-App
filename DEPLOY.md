@@ -49,7 +49,7 @@ cd liminal-v
 
 ```bash
 cp .env.example .env
-nano .env      # SMTP_USER = liminalv.band@gmail.com, SMTP_PASS = Gmail-App-Passwort
+nano .env      # SMTP_PASS = Resend-API-Key (re_...) – Einrichtung siehe MAIL.md
 ```
 
 Starten:
@@ -113,6 +113,7 @@ Alternativ identisch zur Produktion testen: `docker compose up --build`
 | Symptom | Prüfen |
 |---------|--------|
 | Cloudflare zeigt Error 502 | Läuft der Container? `docker compose ps`, `curl -I http://localhost:8080` auf der LXC. Stimmt die CT-IP im Tunnel-Eintrag? |
-| Kontaktformular meldet Fehler | `docker compose logs web` → `[Email Error]`. Meist falsches/abgelaufenes Gmail-App-Passwort in `.env`. Nach `.env`-Änderung: `docker compose up -d` (Neustart nötig). |
+| Kontaktformular meldet Fehler | `docker compose logs web` → `[Email Error]`. Meist ungültiger Resend-API-Key oder nicht verifizierte Absenderdomain in `.env`, siehe MAIL.md. Nach `.env`-Änderung: `docker compose up -d` (Neustart nötig). |
+| Mail wird gesendet, kommt aber nicht an | Resend-Dashboard → *Logs* zeigt den Zustellstatus. Kommt sie dort als „delivered" an, hakt es an der Cloudflare-Weiterleitung → *Email → Email Routing → Destination addresses* prüfen. |
 | Änderungen nicht sichtbar | `--build` vergessen: `docker compose up -d --build` |
 | CT-IP hat sich geändert | Im Proxmox der LXC eine statische IP geben und den Tunnel-Eintrag anpassen. |
