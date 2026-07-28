@@ -6,7 +6,7 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
 ## 2. Tech-Stack & Architektur
 - **Frontend:** Reines HTML5, CSS3 und Vanilla JavaScript für eine schnelle und simple Oberfläche.
 - **Backend:** Ein leichtgewichtiges Python-Backend (z. B. Flask oder FastAPI), um dynamische Anfragen zu verarbeiten.
-- **Deployment:** Die Website muss sowohl lokal per `localhost` lauffähig und testbar sein als auch auf einer **Azure Web App** deployt werden können. Der Code und die Konfiguration (z. B. `requirements.txt`, Startbefehl) müssen Azure-kompatibel sein.
+- **Deployment:** Die Website muss lokal per `localhost` lauffähig und testbar sein. Produktiv läuft sie **selbst gehostet**: Docker-Container (Gunicorn auf Port 8080) auf einer Proxmox-LXC im eigenen Homeserver, erreichbar über den bereits bestehenden **Cloudflare Tunnel** (Public Hostname `www.liminal-v.de`). Kein externes Hosting-Konto, kein nginx und kein separates Zertifikat nötig. Details siehe `DEPLOY.md`.
 - **Struktur:** Sauberer, semantischer HTML-Aufbau.
 - **Styling:** Verwende natives CSS. Lege die primären Farben als CSS-Variablen (`:root`) an, damit sie leicht anpassbar sind.
 - **Formular-Verarbeitung:** Implementiere im Python-Backend eine sichere Logik (z. B. via `smtplib`), die die Eingaben aus dem Kontaktformular entgegennimmt und direkt als E-Mail an liminalv.band@gmail.com sendet.
@@ -45,4 +45,4 @@ Wir bauen die offizielle Website für die Coverband "Liminal V". Die Band spielt
 - **Farben:** Kein Farbauslesen aus dem Logo erforderlich. Wähle eigenständig eine professionelle, zum Logo passende Farbpalette und definiere sie als CSS-Variablen. Das Logo wird ggf. separat zur Verfügung gestellt.
 - **Micro-Interactions:** Baue in das CSS weiche Hover-Effekte für Buttons, Links, Bilder und Galerie-Elemente ein (z. B. `transition: all 0.3s ease;`).
 - **Texte generieren:** Verwende kein "Lorem Ipsum". Schreibe direkt passende, lockere und authentische Entwürfe für alle Sektionen (inkl. einer ausgedachten Biografie/Gründungsgeschichte und einer Beispiel-Setlist, die ich dann später nur noch mit den echten Fakten anpassen muss).
-- **Azure-Kompatibilität:** Stelle sicher, dass der Code lokal per `python app.py` oder `flask run` startbar ist und gleichzeitig Azure-ready ist (korrekter `startup`-Befehl, `requirements.txt`, ggf. `web.config` oder `Procfile`).
+- **Deployment-Kompatibilität:** Stelle sicher, dass der Code lokal per `python app.py` oder `flask run` startbar bleibt und gleichzeitig per `docker compose up -d --build` läuft (`Dockerfile`, `docker-compose.yml`, `requirements.txt`, `.env.example`). Secrets ausschließlich über `.env` – niemals committen.

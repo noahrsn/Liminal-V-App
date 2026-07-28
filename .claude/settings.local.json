@@ -6,7 +6,8 @@
       "Bash(pip install:*)",
       "Bash(python -c \"from flask import Flask; from dotenv import load_dotenv; print\\('Imports OK'\\)\")",
       "Bash(python:*)",
-      "Bash(cmd.exe:*)"
+      "Bash(cmd.exe:*)",
+      "Bash(git rm *)"
     ]
   }
 }

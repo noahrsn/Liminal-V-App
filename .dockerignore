@@ -1,0 +1,16 @@
+.env
+*.env
+!.env.example
+.git
+.gitignore
+.github
+.idea
+.claude
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.log
+DEPLOY.md
+CLAUDE.md

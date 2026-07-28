@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: liminal-v-web
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    restart: unless-stopped
