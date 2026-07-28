@@ -81,7 +81,7 @@ Namen mailen, und verbessert die Zustellrate. In Cloudflare **DNS → Records**:
 
 | Typ | Name | Inhalt |
 |-----|------|--------|
-| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:booking@liminal-v.de; adkim=r; aspf=r` |
+| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:info@liminal-v.de; adkim=r; aspf=r` |
 
 `p=none` heißt: nur beobachten, nichts blockieren. Wenn nach ein paar Wochen alles sauber
 zustellt, kann man auf `p=quarantine` hochziehen.
